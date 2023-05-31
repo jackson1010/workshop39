@@ -1,0 +1,25 @@
+<div *ngIf="result$ | async as character">
+    <table>
+        <tr>
+            <td colspan="2" class="image-cell">
+                <img src="{{character.thumbnail.extension +'.'+ character.thumbnail.path}}" width="300" height="300" alt="{{character.name}}">
+            </td>
+        </tr>
+        <tr>
+            <td class="name-cell">
+                <span> {{character.name}}</span>
+            </td>
+            <td  class="button-cell">
+                <button (click)="newComment(character.name)">New Comment</button>
+            </td>
+        </tr>
+        <tr>
+            <th>Comments</th>
+            <th>Date</th>
+        </tr>
+        <tr *ngFor="let c of character.comment">
+            <td>{{c.comment}}</td>
+            <td>{{c.timeStamp}}</td>
+        </tr>
+    </table>
+</div>

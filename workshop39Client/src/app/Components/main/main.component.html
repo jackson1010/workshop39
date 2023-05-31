@@ -1,0 +1,23 @@
+<form [formGroup]="marvelForm" (submit)="processForm()">
+    <table>
+        <tr>
+            <td>
+                Name:
+            </td>
+            <td>
+                <input type="text" formControlName="name" placeholder="SpideyMan">
+                <div *ngIf="marvelForm.get('name')?.hasError('required') && marvelForm.get('name')?.dirty"
+                    style="color: red;">
+                    Please enter a character
+                </div>
+                <div *ngIf="marvelForm.get('name')?.hasError('minlength') && marvelForm.get('name')?.dirty"
+                    style="color: red;">
+                    Please enter at least 5 characters
+                </div>
+            </td>
+            <td>
+                <button type="submit" [disabled]="marvelForm.invalid">Search</button>
+            </td>
+        </tr>
+    </table>
+</form>

@@ -1,0 +1,24 @@
+<h1>{{ name | titlecase }}</h1>
+
+<div class="results-container" *ngIf="result$ | async as results; else noData">
+  <table *ngIf="results.characters && results.characters.length; else noCharacters" class="characters-table">
+    <tr [class.selected]="selectedIndex === i" class="character-row"  *ngFor="let c of results.characters; let i = index" (click)="selected(i)" [class.character-row]="true">
+      <td>{{ c.name }}</td>
+    </tr>
+    <tr>
+      <td colspan="2" class="table-buttons">
+        <button routerLink="/">Back</button>
+        <button (click)="process()">Next</button>
+      </td>
+    </tr>
+  </table>
+</div>
+
+<ng-template #noData>
+  <p>Loading data...</p>
+</ng-template>
+
+<ng-template #noCharacters>
+  <p>No characters found.</p>
+  <button routerLink="/">Back</button>
+</ng-template>

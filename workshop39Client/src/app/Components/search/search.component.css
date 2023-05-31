@@ -1,0 +1,46 @@
+h1 {
+    border: 1px solid #ccc;
+    padding: 10px;
+}
+
+.results-container {
+    border: 1px solid #ccc;
+    padding: 10px;
+}
+
+.characters-table {
+    border-collapse: collapse;
+    width: 100%;
+}
+
+.character-row {
+    border-bottom: 1px solid #ccc;
+}
+
+.character-row td {
+    padding: 5px;
+}
+
+.table-buttons {
+    text-align: right;
+}
+
+button {
+    margin-right: 5px;
+}
+
+.character-row:nth-child(even) {
+    background-color: #b9b6b6;
+}
+
+
+.character-row:hover {
+    background-color: lightskyblue;
+    font-size: 110%;
+    cursor: pointer;
+}
+
+.character-row.selected {
+    background-color: lightblue;
+    font-size: 110%;
+}
